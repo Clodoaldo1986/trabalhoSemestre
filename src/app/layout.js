@@ -1,7 +1,5 @@
-import { Inter } from "next/font/google";
-import "./globals.css";
-
-const inter = Inter({ subsets: ["latin"] });
+import Link from "next/link";
+import { Toaster } from "react-hot-toast";
 
 export const metadata = {
   title: "Create Next App",
@@ -11,7 +9,21 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className="font-normal">
+        <div className="flex flex-row">
+          <div>
+           <Link href="/">HOME | </Link>
+          <Link href="/pages/Clientes">CLIENTES | </Link>
+          <Link href="/pages/Eventos">EVENTOS | </Link>
+          <Link href="/pages/Ingressos">INGRESSOS</Link>
+          </div >
+          <Toaster/>
+          
+        </div>
+        <div className="flex flex-row">            
+          {children}
+          </div>       
+        </body>
     </html>
   );
 }
